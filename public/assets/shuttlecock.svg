@@ -1,0 +1,22 @@
+<svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Shuttlecock">
+  <defs>
+    <linearGradient id="feather" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E8F0FB"/>
+    </linearGradient>
+    <linearGradient id="base" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F6C470"/>
+      <stop offset="100%" stop-color="#D89B3B"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(110 112)">
+    <path d="M0 -88 L-62 10 L-45 18 L0 -62 L45 18 L62 10 Z" fill="url(#feather)" stroke="#C9D8EC" stroke-width="2"/>
+    <path d="M-10 -52 L-54 14" stroke="#B9CBE1" stroke-width="2"/>
+    <path d="M10 -52 L54 14" stroke="#B9CBE1" stroke-width="2"/>
+    <path d="M-22 -70 L-10 15" stroke="#B9CBE1" stroke-width="2"/>
+    <path d="M22 -70 L10 15" stroke="#B9CBE1" stroke-width="2"/>
+    <ellipse cx="0" cy="32" rx="34" ry="24" fill="url(#base)" stroke="#B07720" stroke-width="3"/>
+    <ellipse cx="0" cy="30" rx="26" ry="16" fill="#F3D29B"/>
+    <ellipse cx="0" cy="30" rx="14" ry="8" fill="#DFA750"/>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Badminton court scene">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10345D"/>
+      <stop offset="65%" stop-color="#1C5B94"/>
+      <stop offset="100%" stop-color="#9E1B24"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg1)"/>
+  <rect x="120" y="170" width="1040" height="430" rx="26" fill="#1B446F" fill-opacity="0.5"/>
+  <rect x="180" y="225" width="920" height="320" rx="12" fill="#6AA06E" fill-opacity="0.65"/>
+  <rect x="180" y="381" width="920" height="8" fill="#EAF3FF"/>
+  <rect x="637" y="225" width="6" height="320" fill="#EAF3FF"/>
+  <rect x="190" y="280" width="900" height="3" fill="#EAF3FF" fill-opacity="0.75"/>
+  <rect x="190" y="486" width="900" height="3" fill="#EAF3FF" fill-opacity="0.75"/>
+  <circle cx="330" cy="170" r="90" fill="#FFFFFF" fill-opacity="0.08"/>
+  <circle cx="1040" cy="140" r="120" fill="#FFFFFF" fill-opacity="0.08"/>
+  <text x="80" y="680" fill="#DCEBFF" font-size="38" font-family="Arial, Helvetica, sans-serif" font-weight="700">UUSC Badminton Arena</text>
+</svg>

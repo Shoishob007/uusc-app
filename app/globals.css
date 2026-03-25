@@ -1,26 +1,166 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-outfit);
+
+  /* UUSC Brand Colors */
+  --color-brand-dark: #070b14;
+  --color-brand-navy: #0a1628;
+  --color-brand-blue: #0e4d92;
+  --color-brand-sky: #00b4d8;
+  --color-brand-red: #ef3e36;
+  --color-brand-gold: #f7b731;
+  --color-brand-light: #eef2f7;
+  --color-brand-muted: #94a3b8;
+  --color-brand-card: #0d1f35;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─── Base ───────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #f6f9ff 0%, #edf4ff 100%);
+  color: #13233a;
+  font-family: var(--font-inter), Inter, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #e7effc;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #e24242, #1f5ea7);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1f5ea7;
+}
+
+/* ─── Selection ─────────────────────────────────── */
+::selection {
+  background: #00b4d8;
+  color: #13233a;
+}
+
+/* ─── Utilities ─────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, #00b4d8, #f7b731);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-red {
+  background: linear-gradient(135deg, #ef3e36, #f7b731);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-sky {
+  box-shadow: 0 0 30px rgba(0, 180, 216, 0.25);
+}
+.glow-red {
+  box-shadow: 0 0 30px rgba(239, 62, 54, 0.25);
+}
+.glow-gold {
+  box-shadow: 0 0 30px rgba(247, 183, 49, 0.25);
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(226, 66, 66, 0.32),
+    rgba(31, 94, 167, 0.32),
+    transparent
+  );
+}
+
+/* ─── Glass card ─────────────────────────────────── */
+.glass {
+  background: rgba(13, 31, 53, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Animated underline ────────────────────────── */
+.underline-anim {
+  position: relative;
+}
+.underline-anim::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00b4d8;
+  transition: width 0.3s ease;
+}
+.underline-anim:hover::after {
+  width: 100%;
+}
+
+/* ─── Noise overlay (subtle texture) ────────────── */
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── Marquee animations ─────────────────────────── */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.animate-marquee {
+  animation: marquee-left 40s linear infinite;
+}
+.animate-marquee-reverse {
+  animation: marquee-right 44s linear infinite;
+}
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

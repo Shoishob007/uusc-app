@@ -1,0 +1,30 @@
+<svg width="320" height="640" viewBox="0 0 320 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Badminton racket">
+  <defs>
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9E1B24"/>
+      <stop offset="100%" stop-color="#6E1118"/>
+    </linearGradient>
+    <linearGradient id="handle" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A2638"/>
+      <stop offset="100%" stop-color="#0F1623"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="160" cy="175" rx="120" ry="145" fill="none" stroke="url(#frame)" stroke-width="20"/>
+  <ellipse cx="160" cy="175" rx="96" ry="121" fill="#ffffff" fill-opacity="0.14" stroke="#C9D8EC" stroke-opacity="0.7" stroke-width="2"/>
+  <g stroke="#E7EFFA" stroke-opacity="0.9" stroke-width="2">
+    <line x1="90" y1="95" x2="90" y2="255"/>
+    <line x1="115" y1="75" x2="115" y2="275"/>
+    <line x1="140" y1="64" x2="140" y2="286"/>
+    <line x1="160" y1="58" x2="160" y2="292"/>
+    <line x1="180" y1="64" x2="180" y2="286"/>
+    <line x1="205" y1="75" x2="205" y2="275"/>
+    <line x1="230" y1="95" x2="230" y2="255"/>
+    <line x1="72" y1="128" x2="248" y2="128"/>
+    <line x1="66" y1="158" x2="254" y2="158"/>
+    <line x1="64" y1="188" x2="256" y2="188"/>
+    <line x1="68" y1="218" x2="252" y2="218"/>
+  </g>
+  <path d="M160 305 C178 347, 187 387, 194 429 C200 470, 205 508, 211 544 C213 554, 212 568, 206 579 C200 590, 188 597, 176 597 L144 597 C132 597, 120 590, 114 579 C108 568, 107 554, 109 544 C115 508, 120 470, 126 429 C133 387, 142 347, 160 305 Z" fill="url(#handle)"/>
+  <rect x="131" y="436" width="58" height="150" rx="24" fill="#233A57" fill-opacity="0.65"/>
+  <rect x="140" y="460" width="40" height="95" rx="14" fill="#9E1B24" fill-opacity="0.5"/>
+</svg>

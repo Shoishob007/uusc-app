@@ -1,0 +1,17 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Badminton event scene">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9E1B24"/>
+      <stop offset="100%" stop-color="#5A1016"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg3)"/>
+  <rect x="120" y="200" width="960" height="470" rx="20" fill="#7B1A23" fill-opacity="0.58"/>
+  <rect x="150" y="245" width="900" height="380" rx="10" fill="#436D4A"/>
+  <rect x="150" y="430" width="900" height="5" fill="#F5FAFF"/>
+  <rect x="597" y="245" width="5" height="380" fill="#F5FAFF"/>
+  <path d="M250 650 L300 510 L350 650" stroke="#F5FAFF" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <path d="M950 650 L900 510 L850 650" stroke="#F5FAFF" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <circle cx="600" cy="305" r="14" fill="#FFFFFF"/>
+  <text x="96" y="760" fill="#FFE5E5" font-size="32" font-family="Arial, Helvetica, sans-serif" font-weight="700">UUSC Tournament Night</text>
+</svg>

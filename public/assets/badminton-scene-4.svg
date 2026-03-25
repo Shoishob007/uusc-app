@@ -1,0 +1,18 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Badminton training scene">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#163B67"/>
+      <stop offset="100%" stop-color="#0B223D"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg4)"/>
+  <circle cx="220" cy="140" r="120" fill="#FFFFFF" fill-opacity="0.08"/>
+  <circle cx="980" cy="120" r="130" fill="#FFFFFF" fill-opacity="0.08"/>
+  <rect x="110" y="180" width="980" height="500" rx="26" fill="#1A4E39"/>
+  <rect x="140" y="220" width="920" height="420" rx="12" fill="#3B8156"/>
+  <rect x="140" y="430" width="920" height="6" fill="#EAF3FF"/>
+  <rect x="597" y="220" width="6" height="420" fill="#EAF3FF"/>
+  <rect x="160" y="275" width="880" height="3" fill="#EAF3FF" fill-opacity="0.8"/>
+  <rect x="160" y="585" width="880" height="3" fill="#EAF3FF" fill-opacity="0.8"/>
+  <text x="86" y="756" fill="#D6E8FF" font-size="34" font-family="Arial, Helvetica, sans-serif" font-weight="700">Training Session</text>
+</svg>

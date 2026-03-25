@@ -1,0 +1,762 @@
+// UUSC dummy data for landing page sections.
+
+export const clubStats = [
+  { label: "Active Members", value: "520+", icon: "users" },
+  { label: "Tournaments Hosted", value: "58+", icon: "trophy" },
+  { label: "Years Running", value: "15", icon: "calendar" },
+  { label: "National Medals", value: "34", icon: "medal" },
+];
+
+export const services = [
+  {
+    id: 1,
+    title: "Professional Training",
+    description:
+      "Structured training tracks from beginner to elite with measurable progression.",
+    icon: "dumbbell",
+    color: "sky",
+  },
+  {
+    id: 2,
+    title: "Expert Coaching",
+    description:
+      "Certified coaches provide tactical and technical feedback for singles and doubles.",
+    icon: "user-check",
+    color: "red",
+  },
+  {
+    id: 3,
+    title: "Indoor Facilities",
+    description:
+      "Six international-standard courts, warm-up zone, and recovery corner.",
+    icon: "building",
+    color: "gold",
+  },
+  {
+    id: 4,
+    title: "Event Management",
+    description:
+      "Weekly ladders, monthly cups, and seasonal championships with live scoring.",
+    icon: "calendar-days",
+    color: "sky",
+  },
+  {
+    id: 5,
+    title: "Youth Academy",
+    description:
+      "Under-18 development pipeline focused on discipline, movement, and confidence.",
+    icon: "graduation-cap",
+    color: "red",
+  },
+  {
+    id: 6,
+    title: "Video Analysis",
+    description:
+      "Session replay and shot analytics to improve decision-making and footwork.",
+    icon: "bar-chart",
+    color: "gold",
+  },
+];
+
+export const milestones = [
+  { year: "2009", event: "Club founded with 12 members and 2 courts." },
+  { year: "2012", event: "Won first regional championship title." },
+  { year: "2016", event: "Expanded to 4 indoor professional courts." },
+  { year: "2019", event: "Launched official youth performance academy." },
+  { year: "2022", event: "Crossed 500 active members milestone." },
+  { year: "2025", event: "Hosted largest UUSC Summer Championship to date." },
+];
+
+export const weeklySchedule = [
+  {
+    day: "Monday",
+    short: "MON",
+    sessions: [
+      {
+        time: "6:00 PM - 8:00 PM",
+        type: "Beginner Drill",
+        level: "Beginner",
+        courts: "1-2",
+        coach: "Coach Tariq",
+      },
+    ],
+  },
+  {
+    day: "Tuesday",
+    short: "TUE",
+    sessions: [
+      {
+        time: "6:00 PM - 9:00 PM",
+        type: "Advanced Play",
+        level: "Advanced",
+        courts: "1-4",
+        coach: "Coach Rahman",
+      },
+    ],
+  },
+  {
+    day: "Wednesday",
+    short: "WED",
+    sessions: [
+      {
+        time: "5:00 PM - 7:00 PM",
+        type: "Youth Academy",
+        level: "Under-18",
+        courts: "3-4",
+        coach: "Coach Mitu",
+      },
+      {
+        time: "7:00 PM - 9:00 PM",
+        type: "Intermediate Drill",
+        level: "Intermediate",
+        courts: "1-2",
+        coach: "Coach Karim",
+      },
+    ],
+  },
+  {
+    day: "Thursday",
+    short: "THU",
+    sessions: [
+      {
+        time: "7:00 PM - 9:00 PM",
+        type: "Doubles Practice",
+        level: "All Levels",
+        courts: "1-6",
+        coach: "Coach Tariq",
+      },
+    ],
+  },
+  {
+    day: "Friday",
+    short: "FRI",
+    sessions: [
+      {
+        time: "5:00 PM - 10:00 PM",
+        type: "Open Play",
+        level: "All Levels",
+        courts: "1-6",
+        coach: "Self Play",
+      },
+    ],
+  },
+  {
+    day: "Saturday",
+    short: "SAT",
+    sessions: [
+      {
+        time: "9:00 AM - 1:00 PM",
+        type: "Tournament Practice",
+        level: "Competitive",
+        courts: "1-6",
+        coach: "Coach Rahman",
+      },
+      {
+        time: "3:00 PM - 6:00 PM",
+        type: "Fitness and Footwork",
+        level: "All Levels",
+        courts: "Gym Zone",
+        coach: "Coach Farzana",
+      },
+    ],
+  },
+  {
+    day: "Sunday",
+    short: "SUN",
+    sessions: [
+      {
+        time: "10:00 AM - 2:00 PM",
+        type: "Recreational Play",
+        level: "Casual",
+        courts: "1-4",
+        coach: "Open",
+      },
+    ],
+  },
+];
+
+export const lastTournament = {
+  name: "UUSC Summer Championship 2025",
+  date: "March 10-15, 2025",
+  venue: "UUSC Main Arena, Dhaka",
+  totalParticipants: 64,
+  totalMatches: 63,
+  highlights:
+    "Fastest match: 18 minutes | Longest rally: 42 strokes | Top smash speed: 312 km/h",
+  podium: [
+    {
+      rank: 1,
+      player: "Mohammad Salah",
+      club: "UUSC",
+      score: "21-15, 21-18",
+      prize: "BDT 50,000",
+    },
+    {
+      rank: 2,
+      player: "Rafi Ahmed",
+      club: "DBC Eagles",
+      score: "15-21, 18-21",
+      prize: "BDT 25,000",
+    },
+    {
+      rank: 3,
+      player: "Karim Hassan",
+      club: "UUSC",
+      score: "21-14, 18-21, 21-19",
+      prize: "BDT 10,000",
+    },
+  ],
+  matches: [
+    {
+      round: "QF",
+      player1: "Mohammad Salah",
+      p1score: "21-11, 21-14",
+      player2: "Ziad Hossain",
+    },
+    {
+      round: "QF",
+      player1: "Rafi Ahmed",
+      p1score: "21-18, 17-21, 21-15",
+      player2: "Tanvir Sheikh",
+    },
+    {
+      round: "QF",
+      player1: "Karim Hassan",
+      p1score: "21-19, 21-16",
+      player2: "Nabil Chowdhury",
+    },
+    {
+      round: "QF",
+      player1: "Arif Uddin",
+      p1score: "21-13, 21-17",
+      player2: "Shuvo Mia",
+    },
+    {
+      round: "SF",
+      player1: "Mohammad Salah",
+      p1score: "21-16, 21-13",
+      player2: "Arif Uddin",
+    },
+    {
+      round: "SF",
+      player1: "Rafi Ahmed",
+      p1score: "21-18, 19-21, 21-17",
+      player2: "Karim Hassan",
+    },
+    {
+      round: "F",
+      player1: "Mohammad Salah",
+      p1score: "21-15, 21-18",
+      player2: "Rafi Ahmed",
+    },
+  ],
+};
+
+export const tournaments = [
+  {
+    id: 1,
+    status: "upcoming",
+    name: "UUSC Monsoon Open 2026",
+    date: "June 20-25, 2026",
+    venue: "UUSC Main Arena",
+    category: "Open",
+    prizePool: "BDT 120,000",
+    registrations: 41,
+    maxSlots: 64,
+    image: "/assets/badminton-scene-2.svg",
+  },
+  {
+    id: 2,
+    status: "upcoming",
+    name: "Youth Inter-Club Challenge 2026",
+    date: "July 12-14, 2026",
+    venue: "National Sports Complex",
+    category: "Under-18",
+    prizePool: "BDT 60,000",
+    registrations: 26,
+    maxSlots: 32,
+    image: "/assets/badminton-scene-3.svg",
+  },
+  {
+    id: 3,
+    status: "past",
+    name: "UUSC Winter Doubles Cup 2025",
+    date: "December 5-8, 2025",
+    venue: "UUSC Main Arena",
+    category: "Doubles",
+    prizePool: "BDT 85,000",
+    winner: "Salah / Karim",
+    image: "/assets/badminton-scene-4.svg",
+  },
+  {
+    id: 4,
+    status: "past",
+    name: "Spring Smash Cup 2025",
+    date: "February 8-11, 2025",
+    venue: "Mirpur Sports Dome",
+    category: "Open",
+    prizePool: "BDT 70,000",
+    winner: "Nusrat Jahan",
+    image: "/assets/badminton-scene-2.svg",
+  },
+];
+
+export const tournamentGallery = [
+  {
+    id: 1,
+    image: "/assets/badminton-scene-2.svg",
+    caption: "Final rally under pressure",
+    span: "col-span-2 row-span-2",
+  },
+  {
+    id: 2,
+    image: "/assets/badminton-scene-3.svg",
+    caption: "Podium ceremony and medals",
+    span: "",
+  },
+  {
+    id: 3,
+    image: "/assets/badminton-scene-4.svg",
+    caption: "Crowd and team celebration",
+    span: "",
+  },
+  {
+    id: 4,
+    image: "/assets/badminton-scene-1.svg",
+    caption: "Pre-match warm-up session",
+    span: "",
+  },
+  {
+    id: 5,
+    image: "/assets/badminton-scene-2.svg",
+    caption: "Semi-final tactical timeout",
+    span: "col-span-2",
+  },
+  {
+    id: 6,
+    image: "/assets/badminton-scene-3.svg",
+    caption: "Youth division opening match",
+    span: "",
+  },
+  {
+    id: 7,
+    image: "/assets/badminton-scene-4.svg",
+    caption: "Championship trophy presentation",
+    span: "",
+  },
+];
+
+export const leaderboard = [
+  {
+    rank: 1,
+    name: "Mohammad Salah",
+    avatar: "https://randomuser.me/api/portraits/men/18.jpg",
+    club: "UUSC",
+    points: 2840,
+    wins: 47,
+    losses: 8,
+    wl: "47W / 8L",
+  },
+  {
+    rank: 2,
+    name: "Rafi Ahmed",
+    avatar: "https://randomuser.me/api/portraits/men/25.jpg",
+    club: "DBC Eagles",
+    points: 2650,
+    wins: 41,
+    losses: 12,
+    wl: "41W / 12L",
+  },
+  {
+    rank: 3,
+    name: "Karim Hassan",
+    avatar: "https://randomuser.me/api/portraits/men/63.jpg",
+    club: "UUSC",
+    points: 2490,
+    wins: 38,
+    losses: 14,
+    wl: "38W / 14L",
+  },
+  {
+    rank: 4,
+    name: "Arif Uddin",
+    avatar: "https://randomuser.me/api/portraits/men/44.jpg",
+    club: "Star Court",
+    points: 2310,
+    wins: 35,
+    losses: 16,
+    wl: "35W / 16L",
+  },
+  {
+    rank: 5,
+    name: "Tanvir Sheikh",
+    avatar: "https://randomuser.me/api/portraits/men/36.jpg",
+    club: "UUSC",
+    points: 2190,
+    wins: 33,
+    losses: 18,
+    wl: "33W / 18L",
+  },
+  {
+    rank: 6,
+    name: "Nabil Chowdhury",
+    avatar: "https://randomuser.me/api/portraits/men/71.jpg",
+    club: "UUSC",
+    points: 2050,
+    wins: 30,
+    losses: 19,
+    wl: "30W / 19L",
+  },
+];
+
+export const clubMembers = [
+  {
+    id: 1,
+    name: "Coach Tariq Hossain",
+    role: "Head Coach",
+    category: "Coach",
+    experience: "15 Years",
+    speciality: "Technical Development",
+    bio: "Former national player and BWF-certified coach leading elite programs.",
+    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    achievements: ["BWF Level 3", "National Coach Award 2022"],
+  },
+  {
+    id: 2,
+    name: "Coach Mitu Begum",
+    role: "Youth Coach",
+    category: "Coach",
+    experience: "10 Years",
+    speciality: "Youth Development",
+    bio: "Built UUSC youth pathway and trained over 200 academy players.",
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    achievements: ["Best Youth Coach 2023", "BWF Level 2"],
+  },
+  {
+    id: 3,
+    name: "Mohammad Salah",
+    role: "Captain and Pro Player",
+    category: "Player",
+    ranking: "National Rank #3",
+    speciality: "Singles and Power Smash",
+    bio: "Three-time UUSC champion representing Bangladesh in regional circuits.",
+    avatar: "https://randomuser.me/api/portraits/men/18.jpg",
+    achievements: ["3x UUSC Champion", "National Circuit Top 3"],
+  },
+  {
+    id: 4,
+    name: "Rafi Ahmed",
+    role: "Vice Captain",
+    category: "Player",
+    ranking: "National Rank #5",
+    speciality: "Doubles and Net Control",
+    bio: "Known for quick transitions and tactical doubles combinations.",
+    avatar: "https://randomuser.me/api/portraits/men/25.jpg",
+    achievements: ["2x National Semi-finalist", "Best Doubles 2024"],
+  },
+  {
+    id: 5,
+    name: "Nusrat Jahan",
+    role: "Women\'s Captain",
+    category: "Player",
+    ranking: "Regional Rank #2",
+    speciality: "Singles Speed Play",
+    bio: "Top women\'s competitor in the region with elite footwork speed.",
+    avatar: "https://randomuser.me/api/portraits/women/34.jpg",
+    achievements: ["Regional Champion 2024", "Speed Award"],
+  },
+  {
+    id: 6,
+    name: "Farzana Noor",
+    role: "Strength Coach",
+    category: "Coach",
+    experience: "8 Years",
+    speciality: "Conditioning",
+    bio: "Designs badminton-specific conditioning for endurance and agility.",
+    avatar: "https://randomuser.me/api/portraits/women/28.jpg",
+    achievements: ["NSCA Certified", "Performance Coach Award 2021"],
+  },
+  {
+    id: 7,
+    name: "Arif Uddin",
+    role: "Senior Player",
+    category: "Player",
+    ranking: "National Rank #8",
+    speciality: "Baseline Defense",
+    bio: "Veteran of 12+ UUSC tournaments with consistent top-8 finishes.",
+    avatar: "https://randomuser.me/api/portraits/men/44.jpg",
+    achievements: ["UUSC Veteran Award", "Most Consistent 2023"],
+  },
+  {
+    id: 8,
+    name: "Tanvir Sheikh",
+    role: "Junior Pro",
+    category: "Player",
+    ranking: "National Rank #11",
+    speciality: "Fast Footwork",
+    bio: "Youngest UUSC top-10 ranked player, rising fast in the circuit.",
+    avatar: "https://randomuser.me/api/portraits/men/36.jpg",
+    achievements: ["U-21 Regional Champion", "Rising Star 2024"],
+  },
+  {
+    id: 9,
+    name: "Sadia Islam",
+    role: "Women's Player",
+    category: "Player",
+    ranking: "Regional Rank #4",
+    speciality: "Drop Shot Specialist",
+    bio: "Joined as beginner in 2021 and rose to regional circuit rank in 3 years.",
+    avatar: "https://randomuser.me/api/portraits/women/56.jpg",
+    achievements: ["2x Club Tournament Finalist", "Most Improved 2022"],
+  },
+  {
+    id: 10,
+    name: "Coach Rahman Kabir",
+    role: "Tactical Coach",
+    category: "Coach",
+    experience: "12 Years",
+    speciality: "Advanced Tactics",
+    bio: "Specialist in match strategy, known for doubling win rates in 16 weeks.",
+    avatar: "https://randomuser.me/api/portraits/men/52.jpg",
+    achievements: ["BWF Level 2", "Best Coach UUSC 2020"],
+  },
+  {
+    id: 11,
+    name: "Karim Hassan",
+    role: "Elite Player",
+    category: "Player",
+    ranking: "National Rank #6",
+    speciality: "Smash Power",
+    bio: "Powerhouse smasher with the fastest recorded shot at UUSC: 312 km/h.",
+    avatar: "https://randomuser.me/api/portraits/men/63.jpg",
+    achievements: ["Speed Champion 2025", "3x National Semi-finalist"],
+  },
+  {
+    id: 12,
+    name: "Nabil Chowdhury",
+    role: "Club Player",
+    category: "Player",
+    ranking: "Regional Rank #7",
+    speciality: "Net Play",
+    bio: "Master of the net game; regularly wins critical deuce points on the front court.",
+    avatar: "https://randomuser.me/api/portraits/men/71.jpg",
+    achievements: ["Best Net Player 2024", "Doubles Silver 2023"],
+  },
+];
+
+export const testimonials = [
+  {
+    id: 1,
+    quote:
+      "UUSC changed my level completely. The training plan is clear and the coaching is world class.",
+    name: "Mohammad Salah",
+    role: "Pro Player",
+    avatar: "https://randomuser.me/api/portraits/men/18.jpg",
+    rating: 5,
+  },
+  {
+    id: 2,
+    quote:
+      "My son gained confidence and discipline within months in the youth academy.",
+    name: "Shamim Akhter",
+    role: "Parent",
+    avatar: "https://randomuser.me/api/portraits/men/55.jpg",
+    rating: 5,
+  },
+  {
+    id: 3,
+    quote:
+      "Facilities and tournament operations are professional. This club feels serious and friendly at the same time.",
+    name: "Tanvir Sheikh",
+    role: "Competitive Member",
+    avatar: "https://randomuser.me/api/portraits/men/36.jpg",
+    rating: 5,
+  },
+  {
+    id: 4,
+    quote:
+      "I joined as a beginner and now I play confidently in internal matches every week.",
+    name: "Sadia Islam",
+    role: "Member",
+    avatar: "https://randomuser.me/api/portraits/women/56.jpg",
+    rating: 5,
+  },
+];
+
+export const tournamentUpdates = [
+  {
+    id: 1,
+    type: "registration",
+    title: "Monsoon Open 2026 registration is live",
+    body: "41 of 64 slots are filled. Final registration deadline is June 10.",
+    date: "May 20, 2026",
+    badge: "Registration Open",
+    badgeColor: "sky",
+    image: "/assets/badminton-scene-3.svg",
+  },
+  {
+    id: 2,
+    type: "result",
+    title: "Summer Championship 2025 final result published",
+    body: "Mohammad Salah won the final by 21-15, 21-18.",
+    date: "March 16, 2025",
+    badge: "Results",
+    badgeColor: "gold",
+    image: "/assets/badminton-scene-2.svg",
+  },
+  {
+    id: 3,
+    type: "draw",
+    title: "Youth Inter-Club 2026 draw posted",
+    body: "Main bracket and match times are now available in the tournament desk.",
+    date: "July 8, 2026",
+    badge: "Draw Out",
+    badgeColor: "red",
+    image: "/assets/badminton-scene-4.svg",
+  },
+  {
+    id: 4,
+    type: "announcement",
+    title: "Court 5 and Court 6 upgraded",
+    body: "New floor coating and lighting now active for evening sessions.",
+    date: "April 2, 2026",
+    badge: "Announcement",
+    badgeColor: "sky",
+    image: "/assets/badminton-scene-1.svg",
+  },
+];
+
+export const membershipPlans = [
+  {
+    id: 1,
+    name: "Starter",
+    price: "Free",
+    priceNote: "Always free",
+    color: "muted",
+    popular: false,
+    features: [
+      "Access to Friday open play",
+      "Club newsletter",
+      "Entry to member events",
+      "Basic locker access",
+    ],
+    missing: [
+      "Coaching sessions",
+      "Tournament registration",
+      "Court booking priority",
+      "Video analysis",
+    ],
+    cta: "Get Started",
+  },
+  {
+    id: 2,
+    name: "Pro",
+    price: "BDT 1,200",
+    priceNote: "per month",
+    color: "sky",
+    popular: true,
+    features: [
+      "All Starter benefits",
+      "Unlimited court time",
+      "3 group coaching sessions per week",
+      "Tournament registration for UUSC events",
+      "Locker and equipment storage",
+      "Training app access",
+    ],
+    missing: ["1-on-1 coaching", "Priority slot booking"],
+    cta: "Join Pro",
+  },
+  {
+    id: 3,
+    name: "Elite",
+    price: "BDT 2,500",
+    priceNote: "per month",
+    color: "gold",
+    popular: false,
+    features: [
+      "All Pro benefits",
+      "2 one-on-one coaching sessions per week",
+      "Priority court booking",
+      "Video analysis and performance reports",
+      "Free tournament entry",
+      "Sponsored gear support",
+      "Physio and recovery sessions",
+    ],
+    missing: [],
+    cta: "Join Elite",
+  },
+];
+
+export const clubGalleryImages = [
+  {
+    id: 1,
+    image: "/assets/badminton-scene-4.svg",
+    caption: "Court training",
+    span: "md:col-span-2 md:row-span-2",
+  },
+  {
+    id: 2,
+    image: "/assets/badminton-scene-3.svg",
+    caption: "Partner drills",
+    span: "",
+  },
+  {
+    id: 3,
+    image: "/assets/badminton-scene-2.svg",
+    caption: "Youth camp",
+    span: "",
+  },
+  {
+    id: 4,
+    image: "/assets/badminton-scene-1.svg",
+    caption: "Tournament day",
+    span: "md:col-span-2",
+  },
+  {
+    id: 5,
+    image: "/assets/badminton-scene-4.svg",
+    caption: "Awards night",
+    span: "",
+  },
+  {
+    id: 6,
+    image: "/assets/badminton-scene-3.svg",
+    caption: "Evening practice",
+    span: "",
+  },
+  {
+    id: 7,
+    image: "/assets/badminton-scene-2.svg",
+    caption: "Team photo",
+    span: "md:col-span-2",
+  },
+  {
+    id: 8,
+    image: "/assets/badminton-scene-1.svg",
+    caption: "Coaching session",
+    span: "",
+  },
+  {
+    id: 9,
+    image: "/assets/badminton-scene-4.svg",
+    caption: "Weekend league",
+    span: "",
+  },
+];
+
+export const sponsors = [
+  { id: 1, name: "Yonex", tier: "platinum", logo: null, website: "#sponsors" },
+  { id: 2, name: "Victor Sports", tier: "platinum", logo: null, website: "#sponsors" },
+  { id: 3, name: "Li-Ning", tier: "gold", logo: null, website: "#sponsors" },
+  { id: 4, name: "Decathlon", tier: "gold", logo: null, website: "#sponsors" },
+  { id: 5, name: "bKash", tier: "silver", logo: null, website: "#sponsors" },
+  { id: 6, name: "Grameenphone", tier: "silver", logo: null, website: "#sponsors" },
+  { id: 7, name: "Bashundhara Group", tier: "silver", logo: null, website: "#sponsors" },
+  { id: 8, name: "RFL Sports", tier: "bronze", logo: null, website: "#sponsors" },
+];
+
+export const navLinks = [
+  { label: "Home", href: "#hero" },
+  { label: "Schedule", href: "#schedule" },
+  { label: "Tournament", href: "#tournaments" },
+];
