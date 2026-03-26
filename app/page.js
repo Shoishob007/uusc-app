@@ -5,7 +5,6 @@ import Services from "@/app/components/sections/Services";
 import AboutClub from "@/app/components/sections/AboutClub";
 import WeeklySchedule from "@/app/components/sections/WeeklySchedule";
 import TournamentResult from "@/app/components/sections/TournamentResult";
-import TournamentOverview from "@/app/components/sections/TournamentOverview";
 import TournamentGallery from "@/app/components/sections/TournamentGallery";
 import Leaderboard from "@/app/components/sections/Leaderboard";
 import ClubMembers from "@/app/components/sections/ClubMembers";
@@ -41,9 +40,6 @@ export default function Home() {
       <Divider />
 
       <TournamentResult />
-      <Divider />
-
-      <TournamentOverview />
       <Divider />
 
       <TournamentGallery />

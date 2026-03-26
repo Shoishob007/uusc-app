@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { Trophy, Users, Globe, Zap } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionHeader from "@/app/components/ui/SectionHeader";
@@ -10,29 +9,52 @@ import { milestones } from "@/app/data/dummy";
 gsap.registerPlugin(ScrollTrigger);
 
 const achievements = [
-  { icon: Trophy, value: "30+", label: "National Titles", color: "#B8860B" },
-  { icon: Users, value: "500+", label: "Active Members", color: "#9E1B24" },
   {
-    icon: Globe,
+    value: "30+",
+    label: "National Titles",
+    context: "Three decades of championship excellence across Bangladesh.",
+    color: "#F7B731",
+    gradient: "from-[#F7B731]/15 to-transparent",
+  },
+  {
+    value: "500+",
+    label: "Active Members",
+    context: "A thriving badminton community growing every season.",
+    color: "#9E1B24",
+    gradient: "from-[#9E1B24]/15 to-transparent",
+  },
+  {
     value: "12",
     label: "International Players",
-    color: "#0E4D92",
+    context: "Representing Bangladesh in regional and global circuits.",
+    color: "#4A90D9",
+    gradient: "from-[#0E4D92]/15 to-transparent",
   },
-  { icon: Zap, value: "6", label: "Pro-Grade Courts", color: "#9E1B24" },
+  {
+    value: "6",
+    label: "Pro-Grade Courts",
+    context: "World-class indoor courts open year-round for members.",
+    color: "#F7B731",
+    gradient: "from-[#F7B731]/15 to-transparent",
+  },
 ];
 
 const clubImages = [
   {
-    src: "/assets/badminton-scene-1.svg",
-    alt: "Championship arena",
+    src: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=900&q=80",
+    alt: "Championship arena match",
     cls: "col-span-2 row-span-2 h-full",
   },
   {
-    src: "/assets/badminton-scene-3.svg",
+    src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80",
     alt: "Training session",
     cls: "h-full",
   },
-  { src: "/assets/badminton-scene-4.svg", alt: "Youth academy", cls: "h-full" },
+  {
+    src: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80",
+    alt: "Youth academy courts",
+    cls: "h-full",
+  },
 ];
 
 export default function AboutClub() {
@@ -74,16 +96,16 @@ export default function AboutClub() {
         stagger: 0.08,
         ease: "power2.out",
       });
-      gsap.from(".achievement-stat", {
+      gsap.from(".achievements-prose", {
         scrollTrigger: {
-          trigger: ".achievements-grid",
+          trigger: ".achievements-prose",
           start: "top 85%",
           once: true,
         },
         y: 30,
         opacity: 0,
         duration: 0.6,
-        stagger: 0.08,
+        stagger: 0.12,
         ease: "back.out(1.4)",
       });
     }, sectionRef);
@@ -111,53 +133,59 @@ export default function AboutClub() {
         <div className="about-content grid lg:grid-cols-2 gap-14 items-start mb-16">
           {/* Left: Story + timeline */}
           <div className="about-text space-y-8">
-            <div className="space-y-4">
-              <p className="text-[#3F556F] text-base leading-relaxed">
+            <div className="space-y-3">
+              <p className="text-[#3F556F] text-sm leading-relaxed">
                 Founded in 2009 by a group of passionate badminton enthusiasts,
                 UUSC started with a vision that was simple yet ambitious: to
                 build a world-class badminton institution right here in Dhaka.
               </p>
-              <p className="text-[#3F556F] text-base leading-relaxed">
+              <p className="text-[#3F556F] text-sm leading-relaxed">
                 Today we stand as Bangladesh&#39;s most decorated badminton club
                 &#8212; with 30 national titles, a roster of international-level
                 players, and a youth academy that has produced over a dozen
                 national team selections.
               </p>
-              <p className="text-[#3F556F] text-base leading-relaxed">
+              <p className="text-[#3F556F] text-sm leading-relaxed">
                 Our culture is built on relentless training, mutual respect, and
                 a deep love for the sport. Every player who walks through our
                 doors is treated as family.
               </p>
             </div>
 
-            {/* Achievement stats */}
-            <div className="achievements-grid grid grid-cols-2 gap-3">
-              {achievements.map((a, i) => (
-                <div
-                  key={i}
-                  className="achievement-stat p-4 rounded-2xl bg-white border border-slate-200 flex items-center gap-3 shadow-sm"
-                >
-                  <div
-                    className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-                    style={{
-                      background: `${a.color}15`,
-                      border: `1px solid ${a.color}28`,
-                    }}
-                  >
-                    <a.icon
-                      className="w-4 h-4"
-                      style={{ color: a.color }}
-                      strokeWidth={1.8}
-                    />
-                  </div>
-                  <div>
-                    <div className="font-display font-extrabold text-lg text-[#13233A] leading-none">
-                      {a.value}
-                    </div>
-                    <div className="text-[#4A6380] text-xs">{a.label}</div>
-                  </div>
-                </div>
-              ))}
+            {/* Achievement stats — prose style with inline colored text */}
+            <div className="achievements-prose space-y-3 text-[#3F556F] text-base leading-relaxed">
+              <p>
+                We've achieved{" "}
+                <span className="font-black" style={{ color: "#F7B731" }}>
+                  {achievements[0].value} national titles
+                </span>{" "}
+                through relentless dedication and world-class coaching across
+                three decades of championship excellence.
+              </p>
+              <p>
+                Our community boasts over{" "}
+                <span className="font-black" style={{ color: "#9E1B24" }}>
+                  {achievements[1].value} active members
+                </span>{" "}
+                who train, compete, and grow together, creating Bangladesh's
+                most vibrant badminton ecosystem.
+              </p>
+              <p>
+                We've developed{" "}
+                <span className="font-black" style={{ color: "#4A90D9" }}>
+                  {achievements[2].value} international players
+                </span>{" "}
+                who proudly represent Bangladesh in continental championships
+                and global circuits.
+              </p>
+              <p>
+                Our facilities include{" "}
+                <span className="font-black" style={{ color: "#F7B731" }}>
+                  {achievements[3].value} professional-grade courts
+                </span>{" "}
+                with world-class infrastructure, open year-round for intensive
+                training and elite tournaments.
+              </p>
             </div>
 
             {/* Timeline */}

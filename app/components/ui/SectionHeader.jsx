@@ -9,6 +9,7 @@ export default function SectionHeader({
   titleHighlight,
   subtitle,
   align = "center",
+  darkMode = false,
   className = "",
 }) {
   const alignClass =
@@ -21,20 +22,32 @@ export default function SectionHeader({
   return (
     <div className={`flex flex-col gap-3 max-w-2xl ${alignClass} ${className}`}>
       {eyebrow && (
-        <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-[#9E1B24]">
-          <span className="w-6 h-px bg-[#9E1B24] inline-block" />
+        <span
+          className={`inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase ${darkMode ? "text-[#F7B731]" : "text-[#9E1B24]"}`}
+        >
+          <span
+            className={`w-6 h-px inline-block ${darkMode ? "bg-[#F7B731]" : "bg-[#9E1B24]"}`}
+          />
           {eyebrow}
-          <span className="w-6 h-px bg-[#9E1B24] inline-block" />
+          <span
+            className={`w-6 h-px inline-block ${darkMode ? "bg-[#F7B731]" : "bg-[#9E1B24]"}`}
+          />
         </span>
       )}
-      <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#13233A] leading-tight">
+      <h2
+        className={`font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight ${darkMode ? "text-white" : "text-[#13233A]"}`}
+      >
         {title}{" "}
         {titleHighlight && (
-          <span className="text-gradient">{titleHighlight}</span>
+          <span className={darkMode ? "text-[#F7B731]" : "text-gradient"}>
+            {titleHighlight}
+          </span>
         )}
       </h2>
       {subtitle && (
-        <p className="text-[#3F556F] text-base sm:text-lg leading-relaxed">
+        <p
+          className={`text-base sm:text-lg leading-relaxed ${darkMode ? "text-slate-400" : "text-[#3F556F]"}`}
+        >
           {subtitle}
         </p>
       )}

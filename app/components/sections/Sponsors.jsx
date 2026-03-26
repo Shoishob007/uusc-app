@@ -11,17 +11,24 @@ function SponsorCard({ sponsor }) {
       <div className="w-14 h-14 mx-auto rounded-2xl bg-[#F1F5F9] border border-slate-200 flex items-center justify-center text-[#13233A] font-display font-black text-lg mb-3">
         {sponsor.name.slice(0, 2).toUpperCase()}
       </div>
-      <p className="font-display font-bold text-sm text-[#13233A] leading-tight">{sponsor.name}</p>
-      <p className="text-[#94A3B8] text-xs mt-1 capitalize">{sponsor.tier} sponsor</p>
+      <p className="font-display font-bold text-sm text-[#13233A] leading-tight">
+        {sponsor.name}
+      </p>
+      <p className="text-[#94A3B8] text-xs mt-1 capitalize">
+        {sponsor.tier} sponsor
+      </p>
     </a>
   );
 }
 
 export default function Sponsors() {
-  const marquee = [...sponsors, ...sponsors];
+  const marquee = [...sponsors, ...sponsors, ...sponsors];
 
   return (
-    <section id="sponsors" className="py-20 lg:py-28 bg-[#F1F5F9] overflow-hidden">
+    <section
+      id="sponsors"
+      className="py-20 lg:py-28 bg-[#F1F5F9] overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
         <div className="flex justify-center">
           <SectionHeader
@@ -33,7 +40,7 @@ export default function Sponsors() {
         </div>
       </div>
 
-      {/* Marquee */}
+      {/* Marquee — infinite seamless loop */}
       <div className="relative overflow-hidden">
         <div className="animate-marquee flex gap-4 w-max px-4">
           {marquee.map((s, i) => (

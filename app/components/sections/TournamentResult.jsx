@@ -1,6 +1,6 @@
-"use client";
+﻿"use client";
 import { useEffect, useRef } from "react";
-import { Trophy, Medal, Award, Users, Zap } from "lucide-react";
+import { Users, Shield } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionHeader from "@/app/components/ui/SectionHeader";
@@ -9,37 +9,20 @@ import { lastTournament } from "@/app/data/dummy";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const podiumColors = [
-  {
-    rank: 1,
-    icon: Trophy,
-    color: "#F7B731",
-    bg: "rgba(247,183,49,0.1)",
-    border: "rgba(247,183,49,0.3)",
-    label: "Champion",
-    height: "h-36",
-  },
-  {
-    rank: 2,
-    icon: Medal,
-    color: "#94A3B8",
-    bg: "rgba(148,163,184,0.1)",
-    border: "rgba(148,163,184,0.2)",
-    label: "Runner-Up",
-    height: "h-24",
-  },
-  {
-    rank: 3,
-    icon: Award,
-    color: "#CD7F32",
-    bg: "rgba(205,127,50,0.1)",
-    border: "rgba(205,127,50,0.2)",
-    label: "3rd Place",
-    height: "h-20",
-  },
-];
+const roundLabel = { QF: "QF", SF: "SF", F: "Final" };
 
-const roundLabel = { QF: "Quarter-Final", SF: "Semi-Final", F: "Final" };
+function parseSets(score) {
+  return score.split(", ").map((s) => s.split("-"));
+}
+
+const clubColors = {
+  UUSC: { bg: "#0E4D92", abbr: "UU" },
+  "DBC Eagles": { bg: "#9E1B24", abbr: "DBC" },
+  "Star Court": { bg: "#2D6A27", abbr: "SC" },
+};
+function getClubColor(club) {
+  return clubColors[club] ?? { bg: "#374151", abbr: club.slice(0, 2).toUpperCase() };
+}
 
 export default function TournamentResult() {
   const sectionRef = useRef(null);
@@ -47,185 +30,179 @@ export default function TournamentResult() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".result-header", {
-        scrollTrigger: { trigger: ".result-header", start: "top 85%" },
-        y: 50,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
+        scrollTrigger: { trigger: ".result-header", start: "top 85%", once: true },
+        y: 40, opacity: 0, duration: 0.8, ease: "power3.out",
       });
-      gsap.from(".podium-block", {
-        scrollTrigger: { trigger: ".podium-row", start: "top 80%" },
-        y: 80,
-        opacity: 0,
-        duration: 0.9,
-        stagger: 0.15,
-        ease: "back.out(1.5)",
+      gsap.from(".final-card", {
+        scrollTrigger: { trigger: ".final-card", start: "top 80%", once: true },
+        y: 50, opacity: 0, duration: 0.9, ease: "back.out(1.4)",
       });
-      gsap.from(".match-row", {
-        scrollTrigger: { trigger: ".matches-table", start: "top 82%" },
-        x: -30,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.07,
-        ease: "power2.out",
+      gsap.from(".match-card", {
+        scrollTrigger: { trigger: ".matches-list", start: "top 82%", once: true },
+        x: -30, opacity: 0, duration: 0.5, stagger: 0.08, ease: "power2.out",
       });
     }, sectionRef);
     return () => ctx.revert();
   }, []);
 
+  const champion = lastTournament.podium[0];
+  const runnerUp = lastTournament.podium[1];
+  const otherMatches = lastTournament.matches.filter((m) => m.round !== "F");
+
   return (
     <section
       id="results"
       ref={sectionRef}
-      className="py-24 lg:py-32 bg-[#EEF5FF] relative overflow-hidden"
+      className="py-24 lg:py-32 relative overflow-hidden"
+      style={{ background: "#040d18" }}
     >
+      {/* Background image overlay */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#F7B731]/4 blur-[100px] pointer-events-none"
-        aria-hidden
+        className="absolute inset-0 opacity-[0.08]"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1461897625000-b38975a2e1b3?auto=format&fit=crop&w=1920&q=60')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#040d18]/60 via-transparent to-[#040d18]/80" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="result-header flex flex-col items-center mb-14 gap-3">
           <SectionHeader
             eyebrow="Latest Results"
             title="Last Tournament"
             titleHighlight="Results"
-            subtitle={`${lastTournament.name} · ${lastTournament.date}`}
+            subtitle={`${lastTournament.name} Â· ${lastTournament.date}`}
+            darkMode
           />
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-[#3F556F]">
+          <div className="flex flex-wrap justify-center gap-5 text-sm text-slate-400 mt-1">
             <span className="flex items-center gap-1.5">
-              <Users className="w-4 h-4 text-[#9E1B24]" />
+              <Users className="w-4 h-4 text-[#F7B731]" />
               {lastTournament.totalParticipants} Players
             </span>
             <span className="flex items-center gap-1.5">
-              <Zap className="w-4 h-4 text-[#F7B731]" />
+              <Shield className="w-4 h-4 text-[#F7B731]" />
               {lastTournament.totalMatches} Matches
             </span>
           </div>
         </div>
 
-        {/* Podium */}
-        <div className="podium-row flex items-end justify-center gap-4 sm:gap-6 mb-16">
-          {/* Reorder: 2nd, 1st, 3rd */}
-          {[
-            lastTournament.podium[1],
-            lastTournament.podium[0],
-            lastTournament.podium[2],
-          ].map((p) => {
-            const config = podiumColors.find((c) => c.rank === p.rank);
+        {/* Final â€” football score hero card */}
+        <div className="final-card rounded-2xl overflow-hidden mb-10 border border-white/10 shadow-[0_12px_50px_rgba(0,0,0,0.5)]">
+          {/* Title bar */}
+          <div className="bg-gradient-to-r from-[#F7B731] via-[#E6A500] to-[#F7B731] px-6 py-2 flex items-center justify-center gap-2">
+            <span className="text-[#0a1628] text-xs font-black uppercase tracking-[0.18em]">
+              {lastTournament.name}
+            </span>
+            <span className="text-[#0a1628]/50 text-xs">Â·</span>
+            <span className="text-[#0a1628] text-xs font-bold uppercase tracking-widest">
+              Grand Final
+            </span>
+          </div>
+
+          {/* Main score */}
+          <div
+            className="relative px-6 py-8 sm:px-10"
+            style={{ background: "linear-gradient(135deg,#071525 0%,#0e2240 50%,#071525 100%)" }}
+          >
+            <div className="flex items-center justify-between gap-4">
+              {/* Champion */}
+              <div className="flex flex-col items-center gap-2 flex-1">
+                <div
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-white font-black text-lg border-2 border-[#F7B731]/50 shadow-lg"
+                  style={{ background: getClubColor(champion.club).bg }}
+                >
+                  {getClubColor(champion.club).abbr}
+                </div>
+                <p className="text-white font-bold text-sm sm:text-base text-center leading-tight">{champion.player}</p>
+                <span className="text-slate-400 text-xs">{champion.club}</span>
+                <span className="mt-1 px-2.5 py-0.5 rounded-full bg-[#F7B731]/20 border border-[#F7B731]/40 text-[#F7B731] text-xs font-bold uppercase tracking-wider">
+                  Champion
+                </span>
+              </div>
+
+              {/* Score */}
+              <div className="text-center shrink-0 px-2">
+                <div className="flex items-center justify-center gap-3 sm:gap-5">
+                  <span className="font-black text-5xl sm:text-6xl text-white leading-none">
+                    {parseSets(champion.score).length}
+                  </span>
+                  <span className="text-slate-500 text-2xl font-light">:</span>
+                  <span className="font-black text-5xl sm:text-6xl text-slate-500 leading-none">0</span>
+                </div>
+                <p className="text-[#F7B731] text-[10px] font-bold uppercase tracking-[0.2em] mt-2">Sets Won</p>
+                <div className="flex items-center justify-center gap-2 mt-3 flex-wrap">
+                  {parseSets(champion.score).map(([w, l], si) => (
+                    <span
+                      key={si}
+                      className="px-2.5 py-1 rounded-lg text-xs font-mono font-bold border border-white/10 text-slate-200"
+                      style={{ background: "rgba(255,255,255,0.06)" }}
+                    >
+                      <span className="text-white">{w}</span>
+                      <span className="text-slate-500 mx-0.5">-</span>
+                      <span className="text-slate-400">{l}</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Runner-up */}
+              <div className="flex flex-col items-center gap-2 flex-1">
+                <div
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-white font-black text-lg border-2 border-white/15 shadow-lg"
+                  style={{ background: getClubColor(runnerUp.club).bg }}
+                >
+                  {getClubColor(runnerUp.club).abbr}
+                </div>
+                <p className="text-slate-300 font-semibold text-sm sm:text-base text-center leading-tight">{runnerUp.player}</p>
+                <span className="text-slate-500 text-xs">{runnerUp.club}</span>
+                <span className="mt-1 px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-400 text-xs font-medium">
+                  Runner-Up
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* SF & QF matches */}
+        <div className="matches-list space-y-2.5">
+          <h3 className="text-slate-400 text-xs font-bold uppercase tracking-[0.18em] mb-4 flex items-center gap-2">
+            <span className="h-px w-6 bg-slate-600" />
+            All Match Results
+            <span className="h-px flex-1 bg-slate-600/40" />
+          </h3>
+          {otherMatches.map((m, i) => {
+            const sets = parseSets(m.p1score);
             return (
               <div
-                key={p.rank}
-                className="podium-block flex flex-col items-center gap-3 w-36 sm:w-44"
+                key={i}
+                className="match-card flex items-center gap-3 rounded-xl border border-white/[0.08] px-4 py-3.5 hover:border-white/15 transition-colors"
+                style={{ background: "rgba(255,255,255,0.04)" }}
               >
-                {/* Trophy icon */}
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center"
-                  style={{
-                    background: config.bg,
-                    border: `1px solid ${config.border}`,
-                  }}
-                >
-                  <config.icon
-                    className="w-6 h-6"
-                    style={{ color: config.color }}
-                  />
+                <Badge color={m.round === "SF" ? "sky" : "muted"} size="sm" className="shrink-0 min-w-[40px] justify-center">
+                  {roundLabel[m.round]}
+                </Badge>
+                <span className="text-white font-semibold text-sm flex-1 truncate">{m.player1}</span>
+                <div className="flex items-center gap-1.5 shrink-0">
+                  {sets.map(([w, l], si) => (
+                    <span
+                      key={si}
+                      className="text-xs font-mono font-bold px-2 py-0.5 rounded border border-white/10 text-slate-200"
+                      style={{ background: "rgba(247,183,49,0.10)" }}
+                    >
+                      <span className="text-[#F7B731]">{w}</span>
+                      <span className="text-slate-600">-</span>
+                      <span className="text-slate-400">{l}</span>
+                    </span>
+                  ))}
                 </div>
-                {/* Player name */}
-                <div className="text-center">
-                  <p className="font-display font-bold text-[#13233A] text-sm leading-tight">
-                    {p.player}
-                  </p>
-                  <p className="text-xs text-[#3F556F]">{p.club}</p>
-                  <p
-                    className="text-xs font-semibold mt-1"
-                    style={{ color: config.color }}
-                  >
-                    {p.prize}
-                  </p>
-                </div>
-                {/* Podium block */}
-                <div
-                  className={`w-full ${config.height} rounded-t-2xl flex items-end justify-center pb-3`}
-                  style={{
-                    background: `linear-gradient(0deg, ${config.bg} 0%, transparent 100%)`,
-                    border: `1px solid ${config.border}`,
-                    borderBottom: "none",
-                  }}
-                >
-                  <span
-                    className="font-display font-black text-4xl"
-                    style={{ color: config.color }}
-                  >
-                    {p.rank === 1 ? "1" : p.rank === 2 ? "2" : "3"}
-                  </span>
-                </div>
+                <span className="text-slate-500 text-sm flex-1 text-right truncate">{m.player2}</span>
               </div>
             );
           })}
-        </div>
-
-        {/* Match Results */}
-        <div className="matches-table max-w-3xl mx-auto">
-          <h3 className="font-display font-bold text-lg text-[#13233A] mb-5 flex items-center gap-2">
-            <span className="w-6 h-px bg-[#9E1B24]" />
-            Match Results
-          </h3>
-          <div className="rounded-2xl border border-[#C9D8EC] overflow-hidden">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-[#0E4D92]/20 border-b border-[#C9D8EC]">
-                  <th className="text-left px-5 py-3 text-[#3F556F] font-semibold text-xs uppercase tracking-wide">
-                    Round
-                  </th>
-                  <th className="text-left px-5 py-3 text-[#3F556F] font-semibold text-xs uppercase tracking-wide">
-                    Winner
-                  </th>
-                  <th className="text-center px-5 py-3 text-[#3F556F] font-semibold text-xs uppercase tracking-wide">
-                    Score
-                  </th>
-                  <th className="text-left px-5 py-3 text-[#3F556F] font-semibold text-xs uppercase tracking-wide">
-                    Opponent
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-[#E3ECF8]">
-                {lastTournament.matches.map((m, i) => (
-                  <tr
-                    key={i}
-                    className="match-row hover:bg-[#F3F8FF] transition-colors"
-                  >
-                    <td className="px-5 py-3.5">
-                      <Badge
-                        color={
-                          m.round === "F"
-                            ? "gold"
-                            : m.round === "SF"
-                              ? "sky"
-                              : "muted"
-                        }
-                        size="sm"
-                      >
-                        {roundLabel[m.round] ?? m.round}
-                      </Badge>
-                    </td>
-                    <td className="px-5 py-3.5 font-semibold text-[#13233A]">
-                      {m.player1}
-                    </td>
-                    <td className="px-5 py-3.5 text-center font-mono text-[#F7B731] text-xs">
-                      {m.p1score}
-                    </td>
-                    <td className="px-5 py-3.5 text-[#3F556F]">{m.player2}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          {/* Highlights */}
-          <p className="text-xs text-[#3F556F] mt-4 text-center italic">
-            {lastTournament.highlights}
-          </p>
         </div>
       </div>
     </section>

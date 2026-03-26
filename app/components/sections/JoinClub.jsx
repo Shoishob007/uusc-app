@@ -43,18 +43,21 @@ export default function JoinClub() {
         opacity: 0,
         duration: 0.8,
         ease: "power3.out",
+        immediateRender: false,
       });
+      // Only animate packages on scroll, don't hide them initially
       gsap.from(".package-card", {
         scrollTrigger: {
           trigger: ".packages-grid",
-          start: "top 88%",
+          start: "top 92%",
           once: true,
         },
-        y: 40,
+        y: 30,
         opacity: 0,
-        duration: 0.6,
-        stagger: 0.12,
+        duration: 0.5,
+        stagger: 0.1,
         ease: "power2.out",
+        immediateRender: false,
       });
       gsap.from(".join-form", {
         scrollTrigger: { trigger: ".join-form", start: "top 88%", once: true },
@@ -62,6 +65,7 @@ export default function JoinClub() {
         opacity: 0,
         duration: 0.7,
         ease: "power3.out",
+        immediateRender: false,
       });
     }, sectionRef);
     return () => ctx.revert();
@@ -93,11 +97,11 @@ export default function JoinClub() {
         </div>
 
         {/* Packages cards */}
-        <div className="packages-grid grid md:grid-cols-3 gap-5 mb-10">
+        <div className="packages-grid grid md:grid-cols-3 gap-5 mb-10 min-h-96">
           {membershipPlans.map((plan) => (
             <div
               key={plan.id}
-              className={`package-card rounded-2xl border bg-white p-6 shadow-sm hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 ${
+              className={`package-card rounded-2xl border bg-white p-6 shadow-sm hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 block visible opacity-100 ${
                 plan.popular ? "border-[#9E1B24]/35" : "border-slate-200"
               }`}
             >
