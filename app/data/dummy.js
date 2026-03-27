@@ -33,7 +33,7 @@ export const services = [
       "Six indoor championship courts with international-grade flooring, lighting, and net systems.",
     icon: "building",
     color: "gold",
-    image: "https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ export const services = [
       "Weekly ladder matches, monthly cups, and seasonal championships with live scoring and prizes.",
     icon: "calendar-days",
     color: "sky",
-    image: "https://images.unsplash.com/photo-1461897625000-b38975a2e1b3?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: 5,
@@ -591,6 +591,42 @@ export const testimonials = [
     name: "Sadia Islam",
     role: "Member",
     avatar: "https://randomuser.me/api/portraits/women/56.jpg",
+    rating: 5,
+  },
+  {
+    id: 5,
+    quote:
+      "The coaching feedback after each session is practical and specific, so improvement feels measurable every week.",
+    name: "Rafi Ahmed",
+    role: "Vice Captain",
+    avatar: "https://randomuser.me/api/portraits/men/25.jpg",
+    rating: 5,
+  },
+  {
+    id: 6,
+    quote:
+      "As a working professional, I needed flexible timing and quality courts. UUSC gives me both without compromise.",
+    name: "Mahin Rahman",
+    role: "Weekend Member",
+    avatar: "https://randomuser.me/api/portraits/men/41.jpg",
+    rating: 5,
+  },
+  {
+    id: 7,
+    quote:
+      "The women's training group is supportive, competitive, and very disciplined. It pushed me to play at a much higher level.",
+    name: "Nusrat Jahan",
+    role: "Women's Captain",
+    avatar: "https://randomuser.me/api/portraits/women/34.jpg",
+    rating: 5,
+  },
+  {
+    id: 8,
+    quote:
+      "Tournament days are exceptionally organized, from match scheduling to score updates. The whole experience feels professional.",
+    name: "Arif Uddin",
+    role: "Senior Player",
+    avatar: "https://randomuser.me/api/portraits/men/44.jpg",
     rating: 5,
   },
 ];

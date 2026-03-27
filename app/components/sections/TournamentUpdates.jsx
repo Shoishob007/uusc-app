@@ -75,19 +75,13 @@ export default function TournamentUpdates() {
     <section
       id="updates"
       ref={sectionRef}
-      className="py-12 lg:py-20 bg-[#0B1523] relative overflow-hidden"
+      className="py-12 lg:py-20 relative overflow-hidden"
+      style={{
+        background:
+          "radial-gradient(80% 110% at 85% 50%, rgba(3,10,18,0.8), #020b14 62%)",
+      }}
     >
-      {/* Subtle texture overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.05]"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1529516548873-9ce57c8f155e?auto=format&fit=crop&w=1920&q=40')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0B1523] via-[#0B1523]/95 to-[#0B1523]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_0%,rgba(3,18,30,0.04),transparent_40%)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}

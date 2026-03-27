@@ -21,7 +21,9 @@ const clubColors = {
   "Star Court": { bg: "#2D6A27", abbr: "SC" },
 };
 function getClubColor(club) {
-  return clubColors[club] ?? { bg: "#374151", abbr: club.slice(0, 2).toUpperCase() };
+  return (
+    clubColors[club] ?? { bg: "#374151", abbr: club.slice(0, 2).toUpperCase() }
+  );
 }
 
 export default function TournamentResult() {
@@ -30,16 +32,34 @@ export default function TournamentResult() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".result-header", {
-        scrollTrigger: { trigger: ".result-header", start: "top 85%", once: true },
-        y: 40, opacity: 0, duration: 0.8, ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".result-header",
+          start: "top 85%",
+          once: true,
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
       });
       gsap.from(".final-card", {
         scrollTrigger: { trigger: ".final-card", start: "top 80%", once: true },
-        y: 50, opacity: 0, duration: 0.9, ease: "back.out(1.4)",
+        y: 50,
+        opacity: 0,
+        duration: 0.9,
+        ease: "back.out(1.4)",
       });
       gsap.from(".match-card", {
-        scrollTrigger: { trigger: ".matches-list", start: "top 82%", once: true },
-        x: -30, opacity: 0, duration: 0.5, stagger: 0.08, ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".matches-list",
+          start: "top 82%",
+          once: true,
+        },
+        x: -30,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: "power2.out",
       });
     }, sectionRef);
     return () => ctx.revert();
@@ -54,19 +74,12 @@ export default function TournamentResult() {
       id="results"
       ref={sectionRef}
       className="py-24 lg:py-32 relative overflow-hidden"
-      style={{ background: "#040d18" }}
+      style={{
+        background:
+          "radial-gradient(80% 110% at 85% 50%, rgba(3,10,18,0.8), #020b14 62%)",
+      }}
     >
-      {/* Background image overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.08]"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1461897625000-b38975a2e1b3?auto=format&fit=crop&w=1920&q=60')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#040d18]/60 via-transparent to-[#040d18]/80" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_0%,rgba(3,18,30,0.04),transparent_40%)]" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -106,7 +119,10 @@ export default function TournamentResult() {
           {/* Main score */}
           <div
             className="relative px-6 py-8 sm:px-10"
-            style={{ background: "linear-gradient(135deg,#071525 0%,#0e2240 50%,#071525 100%)" }}
+            style={{
+              background:
+                "linear-gradient(135deg,#071525 0%,#0e2240 50%,#071525 100%)",
+            }}
           >
             <div className="flex items-center justify-between gap-4">
               {/* Champion */}
@@ -117,7 +133,9 @@ export default function TournamentResult() {
                 >
                   {getClubColor(champion.club).abbr}
                 </div>
-                <p className="text-white font-bold text-sm sm:text-base text-center leading-tight">{champion.player}</p>
+                <p className="text-white font-bold text-sm sm:text-base text-center leading-tight">
+                  {champion.player}
+                </p>
                 <span className="text-slate-400 text-xs">{champion.club}</span>
                 <span className="mt-1 px-2.5 py-0.5 rounded-full bg-[#F7B731]/20 border border-[#F7B731]/40 text-[#F7B731] text-xs font-bold uppercase tracking-wider">
                   Champion
@@ -131,9 +149,13 @@ export default function TournamentResult() {
                     {parseSets(champion.score).length}
                   </span>
                   <span className="text-slate-500 text-2xl font-light">:</span>
-                  <span className="font-black text-5xl sm:text-6xl text-slate-500 leading-none">0</span>
+                  <span className="font-black text-5xl sm:text-6xl text-slate-500 leading-none">
+                    0
+                  </span>
                 </div>
-                <p className="text-[#F7B731] text-[10px] font-bold uppercase tracking-[0.2em] mt-2">Sets Won</p>
+                <p className="text-[#F7B731] text-[10px] font-bold uppercase tracking-[0.2em] mt-2">
+                  Sets Won
+                </p>
                 <div className="flex items-center justify-center gap-2 mt-3 flex-wrap">
                   {parseSets(champion.score).map(([w, l], si) => (
                     <span
@@ -157,7 +179,9 @@ export default function TournamentResult() {
                 >
                   {getClubColor(runnerUp.club).abbr}
                 </div>
-                <p className="text-slate-300 font-semibold text-sm sm:text-base text-center leading-tight">{runnerUp.player}</p>
+                <p className="text-slate-300 font-semibold text-sm sm:text-base text-center leading-tight">
+                  {runnerUp.player}
+                </p>
                 <span className="text-slate-500 text-xs">{runnerUp.club}</span>
                 <span className="mt-1 px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-400 text-xs font-medium">
                   Runner-Up
@@ -182,10 +206,16 @@ export default function TournamentResult() {
                 className="match-card flex items-center gap-3 rounded-xl border border-white/[0.08] px-4 py-3.5 hover:border-white/15 transition-colors"
                 style={{ background: "rgba(255,255,255,0.04)" }}
               >
-                <Badge color={m.round === "SF" ? "sky" : "muted"} size="sm" className="shrink-0 min-w-[40px] justify-center">
+                <Badge
+                  color={m.round === "SF" ? "sky" : "muted"}
+                  size="sm"
+                  className="shrink-0 min-w-[40px] justify-center"
+                >
                   {roundLabel[m.round]}
                 </Badge>
-                <span className="text-white font-semibold text-sm flex-1 truncate">{m.player1}</span>
+                <span className="text-white font-semibold text-sm flex-1 truncate">
+                  {m.player1}
+                </span>
                 <div className="flex items-center gap-1.5 shrink-0">
                   {sets.map(([w, l], si) => (
                     <span
@@ -199,7 +229,9 @@ export default function TournamentResult() {
                     </span>
                   ))}
                 </div>
-                <span className="text-slate-500 text-sm flex-1 text-right truncate">{m.player2}</span>
+                <span className="text-slate-500 text-sm flex-1 text-right truncate">
+                  {m.player2}
+                </span>
               </div>
             );
           })}

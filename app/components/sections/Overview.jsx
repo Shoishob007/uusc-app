@@ -70,28 +70,22 @@ export default function Overview() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Intro */}
-        <div className="overview-intro grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div>
+        <div className="overview-intro grid lg:grid-cols-2 gap-8 mb-16">
+          <div className="lg:col-span-2 max-w-4xl mx-auto text-center">
             <SectionHeader
-              align="left"
+              align="center"
               eyebrow="Club Overview"
               title="More Than a Sports"
               titleHighlight="Club"
               subtitle="UUSC has been the heartbeat of competitive badminton in Dhaka since 2009 â€” a community of athletes, coaches, and champions united by one purpose."
             />
-          </div>
-          <div className="space-y-4">
-            <p className="text-[#3F556F] text-base leading-relaxed">
-              From humble beginnings with 12 founding members and 2 courts, UUSC
-              has grown into a powerhouse with over 500 active members, 6
-              professional courts, and 30 national championship titles.
+            <p className="mt-4 text-[#3F556F] text-base leading-relaxed">
+              From 12 founding members and 2 courts to one of the most respected
+              badminton hubs in Bangladesh, UUSC now supports 500+ athletes,
+              elite coaching programs, and year-round competitive events for all
+              levels.
             </p>
-            <p className="text-[#3F556F] text-base leading-relaxed">
-              Whether you are an aspiring junior, a weekend warrior, or a
-              seasoned competitor, UUSC is where your game â€” and your character
-              â€” will flourish.
-            </p>
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center justify-center gap-3 pt-2">
               <div className="h-1 w-12 rounded-full bg-gradient-to-r from-[#9E1B24] to-[#C62828]" />
               <span className="text-[#9E1B24] text-sm font-semibold tracking-wide">
                 Est. 2009 Â· Dhaka, Bangladesh
@@ -113,9 +107,16 @@ export default function Overview() {
               />
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
-                style={{ background: f.iconBg, border: `1.5px solid ${f.iconBorder}` }}
+                style={{
+                  background: f.iconBg,
+                  border: `1.5px solid ${f.iconBorder}`,
+                }}
               >
-                <f.icon className="w-6 h-6" style={{ color: f.accent }} strokeWidth={2} />
+                <f.icon
+                  className="w-6 h-6"
+                  style={{ color: f.accent }}
+                  strokeWidth={2}
+                />
               </div>
               <div>
                 <h3 className="font-display text-base font-bold text-[#13233A] mb-2">

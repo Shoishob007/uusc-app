@@ -135,56 +135,41 @@ export default function AboutClub() {
           <div className="about-text space-y-8">
             <div className="space-y-3">
               <p className="text-[#3F556F] text-sm leading-relaxed">
-                Founded in 2009 by a group of passionate badminton enthusiasts,
-                UUSC started with a vision that was simple yet ambitious: to
-                build a world-class badminton institution right here in Dhaka.
-              </p>
-              <p className="text-[#3F556F] text-sm leading-relaxed">
-                Today we stand as Bangladesh&#39;s most decorated badminton club
-                &#8212; with 30 national titles, a roster of international-level
-                players, and a youth academy that has produced over a dozen
-                national team selections.
-              </p>
-              <p className="text-[#3F556F] text-sm leading-relaxed">
-                Our culture is built on relentless training, mutual respect, and
-                a deep love for the sport. Every player who walks through our
-                doors is treated as family.
+                Founded in 2009, UUSC grew from a small local group into one of
+                Bangladesh&#39;s leading badminton clubs focused on disciplined
+                coaching and competitive development.
               </p>
             </div>
 
             {/* Achievement stats — prose style with inline colored text */}
-            <div className="achievements-prose space-y-3 text-[#3F556F] text-base leading-relaxed">
+            <div className="achievements-prose space-y-2 text-[#3F556F] text-sm leading-relaxed">
               <p>
-                We've achieved{" "}
+                We&#39;ve achieved{" "}
                 <span className="font-black" style={{ color: "#F7B731" }}>
                   {achievements[0].value} national titles
                 </span>{" "}
-                through relentless dedication and world-class coaching across
-                three decades of championship excellence.
+                through world-class coaching and relentless dedication.
               </p>
               <p>
                 Our community boasts over{" "}
                 <span className="font-black" style={{ color: "#9E1B24" }}>
                   {achievements[1].value} active members
                 </span>{" "}
-                who train, compete, and grow together, creating Bangladesh's
-                most vibrant badminton ecosystem.
+                who train, compete, and grow together year-round.
               </p>
               <p>
-                We've developed{" "}
+                We&#39;ve developed{" "}
                 <span className="font-black" style={{ color: "#4A90D9" }}>
                   {achievements[2].value} international players
                 </span>{" "}
-                who proudly represent Bangladesh in continental championships
-                and global circuits.
+                who now represent Bangladesh at higher levels.
               </p>
               <p>
                 Our facilities include{" "}
                 <span className="font-black" style={{ color: "#F7B731" }}>
                   {achievements[3].value} professional-grade courts
                 </span>{" "}
-                with world-class infrastructure, open year-round for intensive
-                training and elite tournaments.
+                open year-round for training and tournament preparation.
               </p>
             </div>
 
@@ -232,19 +217,6 @@ export default function AboutClub() {
                 />
               </div>
             ))}
-            {/* Quote card */}
-            <div className="col-span-2 rounded-2xl bg-[#13233A] p-5 flex flex-col justify-between shadow-sm">
-              <p className="text-slate-200 text-sm leading-relaxed italic">
-                &#8220;We don&#39;t just train athletes - we build champions
-                with character.&#8221;
-              </p>
-              <div className="mt-4">
-                <p className="text-white font-semibold text-sm">
-                  Coach Tariq Hossain
-                </p>
-                <p className="text-slate-400 text-xs">Head Coach, UUSC</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

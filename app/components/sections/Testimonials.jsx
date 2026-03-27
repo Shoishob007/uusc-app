@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionHeader from "@/app/components/ui/SectionHeader";
+import Button from "@/app/components/ui/Button";
 import { testimonials } from "@/app/data/dummy";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -11,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isAutoPlayPaused, setIsAutoPlayPaused] = useState(false);
   const sectionRef = useRef(null);
   const cardRef = useRef(null);
 
@@ -63,6 +65,14 @@ export default function Testimonials() {
     });
   };
 
+  useEffect(() => {
+    if (isAutoPlayPaused || testimonials.length <= 1) return undefined;
+    const timer = setInterval(() => {
+      changeSlide(1);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [current, isAnimating, isAutoPlayPaused]);
+
   const t = testimonials[current];
 
   return (
@@ -86,7 +96,11 @@ export default function Testimonials() {
           />
         </div>
 
-        <div className="testimonials-body">
+        <div
+          className="testimonials-body"
+          onMouseEnter={() => setIsAutoPlayPaused(true)}
+          onMouseLeave={() => setIsAutoPlayPaused(false)}
+        >
           {/* Main card */}
           <div
             ref={cardRef}
@@ -146,6 +160,7 @@ export default function Testimonials() {
               {testimonials.map((_, i) => (
                 <button
                   key={i}
+                  type="button"
                   onClick={() => {
                     if (!isAnimating) changeSlide(i > current ? 1 : -1);
                   }}
@@ -160,20 +175,24 @@ export default function Testimonials() {
             </div>
             {/* Arrows */}
             <div className="flex gap-2">
-              <button
+              <Button
                 onClick={() => changeSlide(-1)}
-                className="w-10 h-10 rounded-full border border-[#D4E1F3] hover:border-[#9E1B24]/50 hover:bg-[#9E1B24]/10 flex items-center justify-center text-[#3F556F] hover:text-[#13233A] transition-all"
+                variant="outline"
+                size="sm"
+                className="w-10 h-10 p-0 rounded-full"
                 aria-label="Previous"
               >
                 <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={() => changeSlide(1)}
-                className="w-10 h-10 rounded-full border border-[#D4E1F3] hover:border-[#9E1B24]/50 hover:bg-[#9E1B24]/10 flex items-center justify-center text-[#3F556F] hover:text-[#13233A] transition-all"
+                variant="outline"
+                size="sm"
+                className="w-10 h-10 p-0 rounded-full"
                 aria-label="Next"
               >
                 <ChevronRight className="w-5 h-5" />
-              </button>
+              </Button>
             </div>
           </div>
         </div>

@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X, Feather } from "lucide-react";
+import { Menu, X, Feather, CircleUserRound } from "lucide-react";
 import { navLinks } from "@/app/data/dummy";
 import Button from "@/app/components/ui/Button";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -21,6 +22,11 @@ export default function Navbar() {
     };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  useEffect(() => {
+    const session = window.localStorage.getItem("uusc_session");
+    setIsLoggedIn(Boolean(session));
   }, []);
 
   return (
@@ -57,12 +63,25 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3 shrink-0">
-            <Button variant="outline" size="sm" href="#join">
-              Packages
-            </Button>
-            <Button variant="primary" size="sm" href="#join">
-              Join Now
-            </Button>
+            {isLoggedIn ? (
+              <a
+                href="#profile"
+                className="inline-flex items-center gap-2 rounded-full border border-[#C9D8EC] bg-white px-4 py-2 text-sm font-semibold text-[#13233A] hover:bg-[#EDF5FF] transition-colors"
+                aria-label="Open profile"
+              >
+                <CircleUserRound className="w-4 h-4 text-[#9E1B24]" />
+                Profile
+              </a>
+            ) : (
+              <>
+                <Button variant="outline" size="sm" href="#signin">
+                  Sign In
+                </Button>
+                <Button variant="primary" size="sm" href="#register">
+                  Register
+                </Button>
+              </>
+            )}
           </div>
 
           <button
@@ -98,12 +117,35 @@ export default function Navbar() {
               ))}
             </nav>
             <div className="mt-4 grid grid-cols-2 gap-2">
-              <Button variant="outline" size="sm" href="#join">
-                Packages
-              </Button>
-              <Button variant="primary" size="sm" href="#join">
-                Join
-              </Button>
+              {isLoggedIn ? (
+                <a
+                  href="#profile"
+                  className="col-span-2 inline-flex items-center justify-center gap-2 rounded-xl border border-[#C9D8EC] bg-white px-4 py-2.5 text-sm font-semibold text-[#13233A] hover:bg-[#EDF5FF] transition-colors"
+                  onClick={() => setOpen(false)}
+                >
+                  <CircleUserRound className="w-4 h-4 text-[#9E1B24]" />
+                  Profile
+                </a>
+              ) : (
+                <>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    href="#signin"
+                    onClick={() => setOpen(false)}
+                  >
+                    Sign In
+                  </Button>
+                  <Button
+                    variant="primary"
+                    size="sm"
+                    href="#register"
+                    onClick={() => setOpen(false)}
+                  >
+                    Register
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         </div>

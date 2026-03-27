@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { CircleUserRound } from "lucide-react";
 import Button from "@/app/components/ui/Button";
 
 export default function Hero() {
   const [offsetY, setOffsetY] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     let ticking = false;
@@ -20,6 +22,11 @@ export default function Hero() {
 
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const session = window.localStorage.getItem("uusc_session");
+    setIsLoggedIn(Boolean(session));
   }, []);
 
   return (
@@ -63,17 +70,29 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <Button variant="danger" size="lg" href="#join">
-              Join Now
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              href="#tournaments"
-              className="border-white/70 text-white hover:bg-white hover:text-[#13233A]"
-            >
-              Explore Tournaments
-            </Button>
+            {isLoggedIn ? (
+              <a
+                href="#profile"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-[#13233A] shadow-[0_10px_24px_rgba(0,0,0,0.18)] hover:bg-[#EDF5FF] transition-colors"
+              >
+                <CircleUserRound className="w-5 h-5 text-[#9E1B24]" />
+                Go to Profile
+              </a>
+            ) : (
+              <>
+                <Button variant="danger" size="lg" href="#signin">
+                  Sign In
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  href="#register"
+                  className="border-white/70 text-white hover:text-white"
+                >
+                  Register
+                </Button>
+              </>
+            )}
           </div>
         </div>
       </div>
